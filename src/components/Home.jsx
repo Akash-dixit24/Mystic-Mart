@@ -6,12 +6,12 @@ import Loading from './Loading'
 
 
 const Home = () => {
-const [prodducts] =  useContext(ProductContext);
-console.log(prodducts)
+const [products] =  useContext(ProductContext);
+console.log(products)
 
 
 
-  return (  prodducts ? 
+  return products ?( 
        <>
 
        <Nav />
@@ -21,8 +21,8 @@ console.log(prodducts)
    
        <div className=' w-[85%] p-10 pt-[5%] flex flex-wrap overflow-x-hidden overflow-y-auto'> 
 
-       {prodducts.map((p, i) => ( <Link 
-         to="/details/1"
+       {products.map((p, i) => ( <Link 
+         to={`/details/${p.id}`}
              className='mr-3 mb-3 card p-5 border shadow rounded-sm w-[18%] h-[40vh] flex justify-center flex-col'>
             <div className='hover:scale-110 mb-3 w-full h-[80%] bg-contain bg-no-repeat bg-center'
               style={{
@@ -39,8 +39,7 @@ console.log(prodducts)
  </div>
 
 
- </>
-  : <Loading />
+ </>) : (<Loading />
 
   )
 }
